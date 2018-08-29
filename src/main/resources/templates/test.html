@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 { font-size:18pt; font-weight:bold; color:gray; }
+        body {font-size:13pt; color:gray; margin:5px 25px; }
+    </style>
+</head>
+<body>
+    <h1>Test Page</h1>
+    <div th:switch="${5}">
+        <p th:case="1" th:text="1"></p>
+        <p th:case="2" th:text="2"></p>
+        <p th:case="3" th:text="3"></p>
+        <p th:case="4" th:text="4"></p>
+        <p th:case="5" th:text="5"></p>
+    </div>
+    <!--<p th:if="${1 == 0}" th:text="${true}"></p>
+    <p th:unless="${1 == 0}" th:text="${false}"></p>
+    <p th:text="${check} ? ${'trueVal'} : ${'false'}"></p>
+    <p th:utext="${str}"></p>-->
+    <p th:text="|from parameter id= ${param.id[0]} hoge}|"></p>
+    <p th:text="'name=' + ${param.name[0]}"></p>
+    <p><a th:href="@{'/'}">link</a></p>
+    <table border="1" th:each="std:${stdList}">
+        <tr><td>Number</td><td>[[${std.num}]]</td></tr>
+        <tr><td>Name</td><td>[[${std.name}]]</td></tr>
+        <tr><td>Sex</td><td>[[${std.sex}]]</td></tr>
+    </table>
+    <!--
+    <p th:text="${#dates.format(new java.util.Date(), 'dd/MM/yyyy HH:mm')}"></p>
+    <p th:text="${#numbers.formatInteger(1234, 7)}"></p>
+    <p th:text="${#strings.toUpperCase('Welcome to Spring')}"></p>
+    -->
+</body>
+</html>
